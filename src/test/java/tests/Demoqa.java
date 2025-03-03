@@ -4,13 +4,11 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class Demoqa {
+public class DemoqaTest { //п.6
 
     String firstName = "Elina";
     String lastName = "Kulikova";
@@ -24,25 +22,24 @@ public class Demoqa {
     String checkbox1 = "Sports";
     String checkbox2 = "Reading";
     String checkbox3 = "Music";
-    String file = "src\\test\\java\\2.jpg";
+    String file = "2.jpg";
     String currentAddress = "street LA";
     String state = "Rajasthan";
     String city = "Jaiselmer";
-
 
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = true;
-        Configuration.timeout = 5000; // default 4000
-
+        //Configuration.holdBrowserOpen = true; //п.2 и 3
     }
 
     @Test
     void fillFormTest() {
         open("/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()"); //п.4
+        executeJavaScript("$('footer').remove()");
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
         $("#userEmail").setValue(userEmail);
@@ -57,7 +54,7 @@ public class Demoqa {
         $("#hobbies-checkbox-1").parent().$(byText(checkbox1)).click();
         $("#hobbies-checkbox-2").parent().$(byText(checkbox2)).click();
         $("#hobbies-checkbox-3").parent().$(byText(checkbox3)).click();
-        $("#uploadPicture").uploadFile(new File(file));
+        $("#uploadPicture").uploadFromClasspath(file);// п.5
         $("#currentAddress").scrollTo();
         $("#currentAddress").setValue(currentAddress);
         $("#state").click();
@@ -74,9 +71,8 @@ public class Demoqa {
         $(".table-responsive").shouldHave(text(day + " " + month + "," + year));
         $(".table-responsive").shouldHave(text(subjectsInput));
         $(".table-responsive").shouldHave(text(checkbox1 + ", " + checkbox2 + ", " + checkbox3));
-        $(".table-responsive").shouldHave(text(file.substring(14)));
+        $(".table-responsive").shouldHave(text(file));
 
     }
-
 
 }
