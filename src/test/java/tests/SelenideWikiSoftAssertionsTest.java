@@ -1,16 +1,14 @@
 package tests;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.TypeOptions.text;
 
-public class SelenideWikiSoftAssertions {
+public class SelenideWikiSoftAssertionsTest {
 
     @Test
-    void selenideWikiSoftAssertionsTest(){
+    void selenideWikiSoftAssertionsJUnitTest(){
         //открыть страницу https://github.com/selenide/selenide
         open("https://github.com/selenide/selenide");
         //найти wiki и кликнуть на него
