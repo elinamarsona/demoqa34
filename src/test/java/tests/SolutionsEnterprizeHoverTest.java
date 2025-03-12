@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.files.DownloadActions.click;
 
-public class SolutionsEnterprizeHover {
+public class SolutionsEnterprizeHoverTest {
 
     @Test
     void SolutionsEnterprizeHoverTest(){
