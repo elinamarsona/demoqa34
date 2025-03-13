@@ -12,6 +12,9 @@ public class DragAndDropTest {
     void dragAndDropTest(){
         //открыть https://the-internet.herokuapp.com/drag_and_drop
         open("https://the-internet.herokuapp.com/drag_and_drop");
+        //проверка начального состояния элементов
+        $("#column-a").shouldHave(text("A"));
+        $("#column-b").shouldHave(text("B"));
         //перенести прямоугольник А на место В
         $("#column-a").dragAndDropTo("#column-b");
         //проверить, что прямоугольники действительно поменялись
@@ -20,9 +23,12 @@ public class DragAndDropTest {
     }
 
     @Test
-    void ActionTest(){
+    void actionTest(){
         //открыть https://the-internet.herokuapp.com/drag_and_drop
         open("https://the-internet.herokuapp.com/drag_and_drop");
+        //проверка начального состояния элементов
+        $("#column-a").shouldHave(text("A"));
+        $("#column-b").shouldHave(text("B"));
         // Подвинуть прямоугольник А, кликнуть и держать, передвинуть на место В, отпустить кнопку мыши
         actions().moveToElement($("#column-a")).clickAndHold().moveToElement($("#column-b"))
                 .release().perform();

@@ -1,9 +1,9 @@
 HELP.md
 build/
+!**/src/main/**
 !**/src/test/**
 
 ### IntelliJ IDEA ###
-.**/src/main/**
 .idea
 *.iws
 *.iml

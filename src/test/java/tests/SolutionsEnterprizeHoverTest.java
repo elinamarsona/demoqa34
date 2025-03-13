@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class SolutionsEnterprizeHoverTest {
 
     @Test
-    void SolutionsEnterprizeHoverTest(){
+    void solutionsEnterprizeHoverTest(){
         // открыть браузер на странице гитхаб
         open("https://github.com/");
         //нажать на Solutions
