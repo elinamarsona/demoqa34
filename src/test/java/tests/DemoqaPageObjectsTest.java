@@ -1,13 +1,7 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
-
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
 
 public class DemoqaPageObjectsTest extends TestBase {
 
@@ -59,6 +53,7 @@ public class DemoqaPageObjectsTest extends TestBase {
     @Test
     void successRegistrationMinimalInputTest() {
         registrationPage.openPage()
+                .removeBanner()
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setGender(gender)
@@ -66,13 +61,14 @@ public class DemoqaPageObjectsTest extends TestBase {
                 .submitForm();
 
         registrationPage.checkResult("Student Name", firstName + " " + lastName)
-                .checkResult("Gender", gender)
+                 .checkResult("Gender", gender)
                 .checkResult("Mobile", userNumber);
     }
 
     @Test
     void negativeRegistrationTest1() {
         registrationPage.openPage()
+                .removeBanner()
                 .submitForm();
 
         registrationPage.checkInvalidInput();
@@ -81,6 +77,7 @@ public class DemoqaPageObjectsTest extends TestBase {
     @Test
     void negativeRegistrationTest2() {
         registrationPage.openPage()
+                .removeBanner()
                 .setFirstName(firstName)
                 .submitForm();
 
