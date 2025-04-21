@@ -24,7 +24,6 @@ public class DemoqaPageObjectsFakerTest extends TestBase {
     @DisplayName("Успешная регистрация при заполнении всех полей")
     @Test
     void successRegistrationTest() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
         step("Открыть страницу и заполнить все поля", () -> {
         registrationPage.openPage()
                 .setFirstName(randomUtils.firstName)
@@ -59,7 +58,6 @@ public class DemoqaPageObjectsFakerTest extends TestBase {
     @DisplayName("Успешная регистрация при заполнении только обязательных полей")
     @Test
     void successRegistrationMinimalInputTest() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
         step("Открыть страницу и заполнить обязательные поля", () -> {
         registrationPage.openPage()
                 .removeBanner()
@@ -81,7 +79,6 @@ public class DemoqaPageObjectsFakerTest extends TestBase {
     @DisplayName("Несостоявшаяся регистрация при нажатии только кнопки Submit")
     @Test
     void negativeRegistrationTest1() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
         step("Открыть страницу", () -> {
         registrationPage.openPage()
                 .removeBanner();
@@ -97,7 +94,6 @@ public class DemoqaPageObjectsFakerTest extends TestBase {
     @DisplayName("Несостоявшаяся регистрация при заполнении одного обязательного поля и нажатии кнопки Submit")
     @Test
     void negativeRegistrationTest2() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
         step("Открыть страницу и заполнить одно обязательное поле", () -> {
         registrationPage.openPage()
                 .removeBanner()
