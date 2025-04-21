@@ -4,6 +4,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.javafaker.Faker;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import utils.RandomUtils;
@@ -13,6 +14,7 @@ import java.util.Locale;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
+@Tag("Authorization")
 @DisplayName("Проверка регистрации на странице demoqa")
 public class DemoqaPageObjectsFakerTest extends TestBase {
 
