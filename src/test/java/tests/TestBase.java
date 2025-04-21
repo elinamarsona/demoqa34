@@ -13,6 +13,8 @@ import java.util.Map;
 public class TestBase {
     @BeforeAll
     static void beforeAll() {
+        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.browserVersion = System.getProperty("browserVersion", "128.0");
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
@@ -24,12 +26,11 @@ public class TestBase {
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
-
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
     @AfterEach
-    void addAttachments(){
+    void addAttachments() {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
